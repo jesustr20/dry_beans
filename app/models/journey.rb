@@ -13,7 +13,12 @@ class Journey < ApplicationRecord
   belongs_to :route_planner
   has_many :destination, dependent: :destroy
 
-  
+  #Validations
+  validates :journey_name, presence: true, uniqueness:{
+    message: lambda { |_object, data|
+      "El nombre del viaje #{data[:value]} ya existe"
+    }
+  }
   accepts_nested_attributes_for :destination, allow_destroy: true
 
   #methods for ransack => search in routes = nil?

@@ -10,6 +10,6 @@ class JourneysSerializer < Blueprinter::Base
 
   view :with_destination do
     association :route_planner, blueprint: RoutePlannersSerializer
-    association :destination, blueprint: DestinationsSerializer, name: :destinations
+    association :destination, blueprint: DestinationsSerializer
   end
 end
