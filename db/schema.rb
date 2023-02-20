@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_19_165320) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_19_225832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "destinations", force: :cascade do |t|
-    t.string "type"
+    t.string "type_operation"
     t.string "destination_name"
     t.string "firstname"
     t.string "lastname"
@@ -33,18 +33,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_19_165320) do
 
   create_table "journeys", force: :cascade do |t|
     t.string "journey_name"
-    t.bigint "route_id", null: false
+    t.bigint "route_planner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["route_id"], name: "index_journeys_on_route_id"
+    t.index ["route_planner_id"], name: "index_journeys_on_route_planner_id"
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.string "roue_name"
+  create_table "route_planners", force: :cascade do |t|
+    t.string "route_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "destinations", "journeys"
-  add_foreign_key "journeys", "routes"
+  add_foreign_key "journeys", "route_planners"
 end
