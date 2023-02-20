@@ -41,7 +41,16 @@ gem 'enumerate_it'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  #gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers'
 end
 
 group :development do
