@@ -19,7 +19,7 @@ class Journey < ApplicationRecord
       "El nombre del viaje #{data[:value]} ya existe"
     }
   }
-  accepts_nested_attributes_for :destination, allow_destroy: true
+  validates_uniqueness_of :journey_name, case_insensitive: true
 
   #methods for ransack => search in routes = nil?
   def self.ransackable_attributes(auth_object = nil)
