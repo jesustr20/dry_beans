@@ -18,6 +18,8 @@ class RoutePlanner < ApplicationRecord
     }
   }
 
+  validates_uniqueness_of :route_name, case_insensitive: true
+
   #methods for ransack => search in routes = nil?
   def self.ransackable_attributes(auth_object = nil)
     %w(created_at id route_name updated_at)
