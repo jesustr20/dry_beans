@@ -10,6 +10,13 @@
 class RoutePlanner < ApplicationRecord
   #Associations
   has_many :journey, dependent: :destroy
+  
+  #Validations
+  validates :route_name, presence: true, uniqueness:{
+    message: lambda { |_object, data|
+      "El nombre de ruta #{data[:value]} ya existe"
+    }
+  }
 
   #methods for ransack => search in routes = nil?
   def self.ransackable_attributes(auth_object = nil)
