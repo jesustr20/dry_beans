@@ -3,7 +3,7 @@
 # Table name: destinations
 #
 #  id               :bigint           not null, primary key
-#  type             :string
+#  type_operation   :string
 #  destination_name :string
 #  firstname        :string
 #  lastname         :string
