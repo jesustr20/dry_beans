@@ -10,6 +10,15 @@
 #
 class Journey < ApplicationRecord
   #Associations
-  belongs_to :route
+  belongs_to :route_planner
   has_many :destination, dependent: :destroy
+
+  
+  accepts_nested_attributes_for :destination, allow_destroy: true
+
+  #methods for ransack => search in routes = nil?
+  def self.ransackable_attributes(auth_object = nil)
+    %w(created_at id journey_name route_id updated_at)
+  end
 end
+
