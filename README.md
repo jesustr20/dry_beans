@@ -35,7 +35,7 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
  
   "[POST]": http://127.0.0.1:3000/api/v1/route_planners
 
-  valores Json:
+  Formato Json:
   ```ruby
     {
       "route_name": "name_route"
@@ -43,11 +43,11 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
   ```
 
 * Para crear el Viaje usaremos la siguiente Api haciendo uso del metodo POST.\
-  nota, se requiere el id de la ruta registrada anteriormente.\
+  nota, se requiere el id de la ruta "route_planner_id" registrada anteriormente.\
 
   "[POST]": http://127.0.0.1:3000/api/v1/journeys
 
-  valores Json:\
+  Formato Json:
   ```ruby
     {
       "route_planner_id": 1,
@@ -56,3 +56,63 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
   ```
   Nota: "route_planner_id" es la referencia del modelo route_planner\
   que tiene como registro el nombre de la ruta creada
+
+* Para crear una Entrega/Retiro, se hara uso de la siguiente api usando el metodo POST.\
+  nota, se requiere el id del viaje "journey_id" registrada anteriormente.\
+
+  "[POST]": http://127.0.0.1:3000/api/v1/destinations
+
+  Formato Json:
+  ```ruby
+    {
+      "type_operation": "entrega/retiro",
+      "destination_name": "destination",
+      "firstname": "fname",
+      "lastname": "lname",
+      "dni": "number_identification",
+      "country": "Country",
+      "province": "province",
+      "district": "district",
+      "avenue": "avenue",
+      "product_name": "product",
+      "journey_id": 1
+    }
+  ```
+
+* Para consultar la ruta con sus viajes y sus Pedidos/Entregas, usaremos la siguiente api\
+  haciendo uso del metodo GET.
+
+  "[GET]": http://127.0.0.1:3000/api/v1/route_planners/1
+
+  Formato Json:
+  ```ruby
+    {
+	"id": 1,
+	"journeys": [
+		{
+			"id": 1,
+			"destination": [
+				{
+					"id": 1,
+					"avenue": "avenue",
+					"country": "country",
+					"destination_name": "destination",
+					"district": "district",
+					"dni": "number_identification",
+					"firstname": "fanme",
+					"lastname": "lname",
+					"product_name": "product",
+					"province": "province",
+					"type_operation": "entrega/retiro"
+				}
+			],
+			"journey_name": "name_journey",
+			"route_planner": {
+				"id": 1,
+				"route_name": "name_route"
+			}
+		}
+	],
+	"route_name": "name_route"
+}
+  ```
