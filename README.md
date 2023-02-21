@@ -33,26 +33,26 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
 
 * Para crear una Ruta usaremos la siguiente Api haciendo uso del metodo POST.
  
-  [POST]: http://127.0.0.1:3000/api/v1/route_planners
+  "[POST]": http://127.0.0.1:3000/api/v1/route_planners
 
-  valores Json:\
+  valores Json:
   ```ruby
-    {\
-      "route_name":\ "name_route"\
+    {
+      "route_name": "name_route"
     }
   ```
 
 * Para crear el Viaje usaremos la siguiente Api haciendo uso del metodo POST.\
   nota, se requiere el id de la ruta registrada anteriormente.\
 
-  [POST]: http://127.0.0.1:3000/api/v1/journeys
+  "[POST]": http://127.0.0.1:3000/api/v1/journeys
 
   valores Json:\
   ```ruby
-    {\
-      "route_planner_id": 1,\
-	    "journey_name": "name_journey"\
-    }\
+    {
+      "route_planner_id": 1,
+	    "journey_name": "name_journey"
+    }
   ```
   Nota: "route_planner_id" es la referencia del modelo route_planner\
   que tiene como registro el nombre de la ruta creada
