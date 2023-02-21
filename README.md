@@ -36,6 +36,6 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
   Post: http://127.0.0.1:3000/api/v1/route_planners
 
   valores Json:\
-    {
-      "route_name": "nombre_ruta"
+    {\
+      "route_name":\ "nombre_ruta"\
     }
