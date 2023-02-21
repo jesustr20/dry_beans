@@ -24,5 +24,18 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
   * rspec spec/models/route_planner_spec.rb
   * rspec spec/models/journey_spec.rb
 
-3.- Una vez creada la db y corrida las migraciones, procederemos a levantar el proyecto\
-    y poder hacer uso de sus Apis.
+3.- Una vez creada la db y corrida las migraciones, haber probado los test unitarios (basico)\
+    procederemos a levantar el proyecto y poder hacer uso de sus Apis.\
+
+### Levantar Proyecto y hacer uso de sus APis.
+1.- Correremos el proyecto: rails s
+2.- Para acceder a sus apis tendremos 4 apis distintas
+
+* Para crear una Ruta usaremos la siguiente Api.
+ 
+  Post: http://127.0.0.1:3000/api/v1/route_planners
+
+  valores Json:\
+    {
+      "route_name": "nombre_ruta"
+    }
