@@ -28,14 +28,28 @@ tanto para la ejecucion de los test unitarios incluidos en el mismo
     procederemos a levantar el proyecto y poder hacer uso de sus Apis.\
 
 ### Levantar Proyecto y hacer uso de sus APis.
-1.- Correremos el proyecto: rails s
+1.- Correremos el proyecto: rails s\
 2.- Para acceder a sus apis tendremos 4 apis distintas
 
-* Para crear una Ruta usaremos la siguiente Api.
+* Para crear una Ruta usaremos la siguiente Api haciendo uso del metodo POST.
  
-  Post: http://127.0.0.1:3000/api/v1/route_planners
+  [POST]: http://127.0.0.1:3000/api/v1/route_planners
 
   valores Json:\
     {\
-      "route_name":\ "nombre_ruta"\
+      "route_name":\ "name_route"\
     }
+
+* Para crear el Viaje usaremos la siguiente Api haciendo uso del metodo POST.\
+  nota, se requiere el id de la ruta registrada anteriormente.\
+
+  [POST]: http://127.0.0.1:3000/api/v1/journeys
+
+  valores Json:\
+    {\
+      "route_planner_id": 1,\
+	    "journey_name": "name_journey"\
+    }\
+
+  Nota: "route_planner_id" es la referencia del modelo route_planner\
+  que tiene como registro el nombre de la ruta creada
