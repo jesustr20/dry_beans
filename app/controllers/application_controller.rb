@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include Pagy::Backend
+  #rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   after_action { pagy_headers_merge(@pagy) if @pagy }
 

@@ -31,7 +31,7 @@ class Destination < ApplicationRecord
   validates :dni, presence: true
   validates :country, presence: true, format: ONLY_ALLOWS_LETTERS
   validates :province, presence: true, format: ONLY_ALLOWS_LETTERS
-  validates :district, presence: true, format: ONLY_ALLOWS_LETTERS
+  validates :district, presence: true
   validates :avenue, presence: true
   validates :product_name, presence: true
   #enum type_operation: {entrega: "entrega", retiro: "retiro"}
